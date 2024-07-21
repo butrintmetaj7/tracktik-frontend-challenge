@@ -5,12 +5,13 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'sites',
+      name: 'site-list',
       component: import('../views/Sites/Index.vue')
     },
     {
-      path: '/',
-      name: 'sites/:id',
+      path: '/sites/:id',
+      name: 'site-details',
+      props: true,
       component: import('../views/Sites/Show.vue')
     }
   ]

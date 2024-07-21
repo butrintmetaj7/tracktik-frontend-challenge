@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="site in sites" :key="site.id">
+    <div v-for="site in sites" :key="site.id" class="site-item">
       <SiteCard :site="site"/>
     </div>
   </div>
@@ -13,6 +13,7 @@ import {useSiteStore} from "@/stores/site";
 import SiteCard from './SiteCard.vue';
 
 const siteStore = useSiteStore();
+
 
 const sites = computed(() => siteStore.sites);
 
