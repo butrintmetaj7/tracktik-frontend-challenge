@@ -35,7 +35,7 @@ const navigateToDetails = () => {
   cursor: pointer;
   border: 1px solid #ddd;
   padding: 10px;
-  margin: 10px;
+  margin-bottom: 10px;
   border-radius: 5px;
   transition: box-shadow 0.3s;
   background-color: #fff;

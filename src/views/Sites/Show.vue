@@ -1,5 +1,5 @@
 <template>
-  <div v-if="site">
+  <div v-if="site" class="details-card">
     <div class="header">
       <h1>Scheduling</h1>
       <div class="menu-icon">&#x2630;</div>
@@ -69,13 +69,17 @@ const goBack = () => {
 </script>
 
 <style scoped>
+.details-card {
+  border: 1px solid #ddd;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #007bff;
-  color: white;
+  background-color: white;
+  color: #181818;
 }
 
 .back-button {
@@ -98,7 +102,7 @@ const goBack = () => {
 }
 
 .site-info {
-  margin-bottom: 80px;
+  margin-bottom: 150px;
   display: flex;
   align-items: center;
   padding: 10px;
