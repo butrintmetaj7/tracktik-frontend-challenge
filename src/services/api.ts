@@ -9,7 +9,7 @@ const apiClient = axios.create({
 
 export default {
     getSites(query_param: string) {
-        return apiClient.get(`/sites?q=${query_param}`);
+        return apiClient.get(`/sites?${query_param}`);
     },
     getSite(id: string) {
         return apiClient.get(`/sites/${id}`);

@@ -7,27 +7,32 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, defineProps,watch } from 'vue';
-import { useSiteStore } from '@/stores/site';
+import { computed, defineProps, watch } from 'vue';
 import SiteCard from './SiteCard.vue';
+import { useSiteStore } from '@/stores/site';
 
 const props = defineProps({
   searchQuery: {
     type: String,
     required: true
+  },
+  currentPage: {
+    type: Number,
+    required: true
+  },
+  limit: {
+    type: Number,
+    required: true
   }
 });
 
 const siteStore = useSiteStore();
-
 const sites = computed(() => siteStore.sites);
 
-onMounted(() => {
-  siteStore.fetchSites(props.searchQuery);
-});
+const fetchSites = () => {
+  const query = `q=${props.searchQuery}&_page=${props.currentPage}&_limit=${props.limit}`;
+  siteStore.fetchSites(query);
+};
 
-watch(() => props.searchQuery, (newQuery) => {
-    siteStore.fetchSites(newQuery);
-}, { immediate: true });
-
+watch([() => props.searchQuery, () => props.currentPage], fetchSites, { immediate: true });
 </script>
