@@ -8,9 +8,9 @@ export const useSiteStore = defineStore('siteStore', {
         filter: ''
     }),
     actions: {
-        async fetchSites() {
+        async fetchSites(query_param: string) {
             try {
-                const response = await api.getSites();
+                const response = await api.getSites(query_param);
                 this.sites = response.data;
             } catch (error) {
                 console.error('Failed to fetch site', error);
